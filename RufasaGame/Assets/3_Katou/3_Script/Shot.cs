@@ -6,6 +6,13 @@ using UnityEngine;
 public class Shot : MonoBehaviour
 {
     private Vector3 m_velocity; // 速度
+    public float lifetime;      //弾丸消滅時間
+
+
+    void Start()
+    {
+        Destroy(gameObject, lifetime);
+    }
 
     // 毎フレーム呼び出される関数
     private void Update()
@@ -28,7 +35,6 @@ public class Shot : MonoBehaviour
         angles.z = angle - 90;
         transform.localEulerAngles = angles;
 
-        // 2 秒後に削除する
-        Destroy(gameObject, 2);
     }
+   
 }

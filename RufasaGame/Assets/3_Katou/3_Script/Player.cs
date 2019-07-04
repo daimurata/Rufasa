@@ -6,12 +6,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float m_speed; // 移動の速さ
-    public Shot m_shotPrefab; // 弾のプレハブ
-    public float m_shotSpeed; // 弾の移動の速さ
-    public float m_shotAngleRange; // 複数の弾を発射する時の角度
-    public float m_shotTimer; // 弾の発射タイミングを管理するタイマー
-    public int m_shotCount; // 弾の発射数
-    public float m_shotInterval; // 弾の発射間隔（秒）
+    public GameObject Shot; // 弾のプレハブ
+    public float shotspeed; // 弾の移動の速さ
+    public float player_HP; //プレイヤーのHP
+    private Vector3 m_velocity; // 速度
+
 
     // 毎フレーム呼び出される関数
     private void Update()
@@ -41,51 +40,23 @@ public class Player : MonoBehaviour
         angles.z = angle - 90;
         transform.localEulerAngles = angles;
 
-        // 弾の発射タイミングを管理するタイマーを更新する
-        m_shotTimer += Time.deltaTime;
+        // 移動する
+        transform.localPosition += m_velocity;
 
-        // まだ弾の発射タイミングではない場合は、ここで処理を終える
-        if (m_shotTimer < m_shotInterval) return;
-
-        // 弾の発射タイミングを管理するタイマーをリセットする
-        m_shotTimer = 0;
-
-        // 弾を発射する
-        ShootNWay(angle, m_shotAngleRange, m_shotSpeed, m_shotCount);
-    }
-
-    // 弾を発射する関数
-    private void ShootNWay(
-        float angleBase, float angleRange, float speed, int count)
-    {
-        var pos = transform.localPosition; // プレイヤーの位置
-        var rot = transform.localRotation; // プレイヤーの向き
-
-        // 弾を複数発射する場合
-        if (1 < count)
+        if (Input.GetMouseButtonDown(0))
         {
-            // 発射する回数分ループする
-            for (int i = 0; i < count; ++i)
-            {
-                // 弾の発射角度を計算する
-                var angle = angleBase +
-                    angleRange * ((float)i / (count - 1) - 0.5f);
 
-                // 発射する弾を生成する
-                var shot = Instantiate(m_shotPrefab, pos, rot);
+            // 弾（ゲームオブジェクト）の生成
+            GameObject clone = Instantiate(Shot, transform.position, Quaternion.identity);
 
-                // 弾を発射する方向と速さを設定する
-                shot.Init(angle, speed);
-            }
-        }
-        // 弾を 1 つだけ発射する場合
-        else if (count == 1)
-        {
-            // 発射する弾を生成する
-            var shot = Instantiate(m_shotPrefab, pos, rot);
+            // クリックした座標の取得（スクリーン座標からワールド座標に変換）
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            // 弾を発射する方向と速さを設定する
-            shot.Init(angleBase, speed);
+            // 向きの生成（Z成分の除去と正規化）
+            Vector3 shotForward = Vector3.Scale((mouseWorldPos - transform.position), new Vector3(1, 1, 0)).normalized;
+
+            // 弾に速度を与える
+            clone.GetComponent<Rigidbody2D>().velocity = shotForward * shotspeed;
         }
     }
 }
