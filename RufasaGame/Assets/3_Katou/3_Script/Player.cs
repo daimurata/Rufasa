@@ -9,8 +9,21 @@ public class Player : MonoBehaviour
     public GameObject Shot; // 弾のプレハブ
     public float shotspeed; // 弾の移動の速さ
     public float player_HP; //プレイヤーのHP
-    private Vector3 m_velocity; // 速度
+    public int m_hpMax; // HP の最大値
+    public int m_hp; // HP
+    private Vector3 m_velocity; // 速度                           
+    public static Player m_instance; // プレイヤーのインスタンスを管理する static 変数
 
+
+    // ゲーム開始時に呼び出される関数
+    private void Awake()
+    {
+        // 他のクラスからプレイヤーを参照できるように
+        // static 変数にインスタンス情報を格納する
+        m_instance = this;
+
+        m_hp = m_hpMax; // HP
+    }
 
     // 毎フレーム呼び出される関数
     private void Update()
@@ -59,4 +72,20 @@ public class Player : MonoBehaviour
             clone.GetComponent<Rigidbody2D>().velocity = shotForward * shotspeed;
         }
     }
+
+    // ダメージを受ける関数
+    // 敵とぶつかった時に呼び出される
+    public void Damage(int damage)
+    {
+        // HP を減らす
+        m_hp -= damage;
+
+        // HP がまだある場合、ここで処理を終える
+        if (0 < m_hp) return;
+
+        // プレイヤーが死亡したので非表示にする
+        // 本来であれば、ここでゲームオーバー演出を再生したりする
+        gameObject.SetActive(false);
+    }
+
 }

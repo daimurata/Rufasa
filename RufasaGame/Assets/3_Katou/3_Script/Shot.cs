@@ -6,12 +6,12 @@ using UnityEngine;
 public class Shot : MonoBehaviour
 {
     private Vector3 m_velocity; // 速度
-    public float lifetime;      //弾丸消滅時間
+    public float lifetime;      //自動消滅時間
 
 
     void Start()
     {
-        Destroy(gameObject, lifetime);
+        Destroy(gameObject, lifetime); //設定時間後弾丸は消滅する
     }
 
     // 毎フレーム呼び出される関数

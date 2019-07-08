@@ -194,6 +194,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1725605714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1725605716}
+  - component: {fileID: 1725605715}
+  m_Layer: 0
+  m_Name: EnemyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1725605715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725605714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c217cdef813acbc41b2a2f8e409a8b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_enemyPrefabs:
+  - {fileID: 1370374536371391399, guid: 94b70c18dba77fe4683f9231c464b347, type: 3}
+  - {fileID: 1370374536371391399, guid: 0da04407f349b89419dda4138445fe9b, type: 3}
+  - {fileID: 1370374536371391399, guid: 725d8862db29c6942b8e0b11d9abbf93, type: 3}
+  - {fileID: 1370374536371391399, guid: 5c7d06af0fc23b945bd159a864f73e9d, type: 3}
+  m_interval: 1
+--- !u!4 &1725605716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725605714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3998648809834938709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -286,6 +335,16 @@ PrefabInstance:
         type: 3}
       propertyPath: shotspeed
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998648809434259700, guid: 648f2f5f393efba4fa98f36dd5f59b41,
+        type: 3}
+      propertyPath: m_hpMax
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3998648809434259700, guid: 648f2f5f393efba4fa98f36dd5f59b41,
+        type: 3}
+      propertyPath: m_hp
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 648f2f5f393efba4fa98f36dd5f59b41, type: 3}
