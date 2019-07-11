@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // プレイヤーを制御するコンポーネント
-public class Player : MonoBehaviour
+public class PLAYER : MonoBehaviour
 {
     public float m_speed; // 移動の速さ
     public GameObject Shot; // 弾のプレハブ
@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public int m_hpMax; // HP の最大値
     public int m_hp; // HP
     private Vector3 m_velocity; // 速度                           
-    public static Player m_instance; // プレイヤーのインスタンスを管理する static 変数
+    public static PLAYER m_instance; // プレイヤーのインスタンスを管理する static 変数
 
 
     // ゲーム開始時に呼び出される関数
