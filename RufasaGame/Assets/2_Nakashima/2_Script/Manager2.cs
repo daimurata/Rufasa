@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Manager : MonoBehaviour
+public class Manager2 : MonoBehaviour
 {
     //勝利時の画像と、敗北時の画像
     public GameObject WinImage;
@@ -23,7 +23,7 @@ public class Manager : MonoBehaviour
         //０になったらシーンを移動させる、移動させる前に処理を入れる
         GameObject PlayerObj = GameObject.FindGameObjectWithTag("Player");
         GameObject EnemyObj = GameObject.FindGameObjectWithTag("Enemy");
-        if(EnemyObj == null)
+        if (EnemyObj == null)
         {
             //ここで勝利の処理
             WinImage.SetActive(true);
@@ -36,7 +36,6 @@ public class Manager : MonoBehaviour
             Invoke("ButtonActive", 2f);
         }
     }
-
     void ButtonActive()
     {
         //ボタンのActiveを変える

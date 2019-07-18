@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player2 : MonoBehaviour
 {
     //よわよわ弾
     public GameObject Bullet1;
@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     //PlayerのHP
     public int PlayerHP = 3;
 
-    public EnemyBullet enemyBullet;
+    public EnemyBullet2 enemyBullet;
     int enemybCount;
     // Start is called before the first frame update
     void Start()
@@ -23,13 +23,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         //PlayerのHPが0になったら～
-        if(PlayerHP == 0)
+        if (PlayerHP == 0)
         {
             //Playerを消す
             Destroy(gameObject);
         }
     }
-
     void FixedUpdate()
     {
         //移動させる
@@ -65,7 +64,7 @@ public class Player : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision2D)
     {
         //敵に当たったら
-        if(collision2D.gameObject.tag == "Enemy")
+        if (collision2D.gameObject.tag == "Enemy")
         {
             //PlayerのHPを減らす
             PlayerHP -= 1;
@@ -75,7 +74,7 @@ public class Player : MonoBehaviour
     {
         enemybCount = enemyBullet.EnemyBulletDamege;
         //敵の弾に当たったらー
-        if(collider2D.gameObject.tag == "EnemyBullet")
+        if (collider2D.gameObject.tag == "EnemyBullet")
         {
             //PlayerのHPを減らす
             PlayerHP -= enemybCount;

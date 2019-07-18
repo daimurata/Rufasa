@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy2 : MonoBehaviour
 {
     //敵のHP
     public int EnemyHP;
     //弾のスクリプトから変数を受け取れるようにする、弾が2種類あるから分けた
-    public Bullet bullet1;
-    public Bullet bullet2;
+    public Bullet2 bullet1;
+    public Bullet2 bullet2;
     //BulletのDamegeの値を入れるための変数
     int bCount1;
     int bCount2;
@@ -25,6 +25,9 @@ public class Enemy : MonoBehaviour
 
     float rot;
     Vector2 pos;
+
+    //Enemyの動きを決める番号
+    public int Num;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +39,7 @@ public class Enemy : MonoBehaviour
     {
         //敵のHPが0になったら～
         if (EnemyHP == 0)
-        { 
+        {
             //敵自身を消す
             Destroy(gameObject);
         }
@@ -44,7 +47,6 @@ public class Enemy : MonoBehaviour
         EnemyAttack();
         EnemyMove();
     }
-
     void OnTriggerEnter2D(Collider2D col)
     {
         bCount1 = bullet1.Damege;
@@ -63,7 +65,7 @@ public class Enemy : MonoBehaviour
             EnemyHP -= bCount2;
             //当たった弾を消す
             Destroy(col.gameObject);
-        }     
+        }
     }
 
     void EnemyMove()
@@ -72,11 +74,21 @@ public class Enemy : MonoBehaviour
         var playerpos = GameObject.FindWithTag("Player").transform.position;
         GameObject.Find("Player").transform.position = new Vector3(playerpos.x, playerpos.y, playerpos.z);
 
-        rot = Mathf.Atan2(playerpos.y - transform.position.y, playerpos.x - transform.position.x);
-        pos = transform.position;
-        pos.x += EnemySpeed * Mathf.Cos(rot);
-        pos.y += EnemySpeed * Mathf.Sin(rot);
-        transform.position = pos;
+        switch (Num)
+        {
+            case 0:
+                rot = Mathf.Atan2(playerpos.y - transform.position.y, playerpos.x - transform.position.x);
+                pos = transform.position;
+                pos.x += EnemySpeed * Mathf.Cos(rot);
+                pos.y += EnemySpeed * Mathf.Sin(rot);
+                transform.position = pos;
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+        }
+
 
         //現状ただ左に移動
         //transform.Translate(Vector3.left* EnemySpeed * Time.deltaTime);
@@ -87,7 +99,7 @@ public class Enemy : MonoBehaviour
         //時間を徐々に足す
         BulletTime += Time.deltaTime;
         //とりあえず3s毎
-        if(BulletTime >= 3f)
+        if (BulletTime >= 3f)
         {
             //0sに戻す
             BulletTime = 0f;

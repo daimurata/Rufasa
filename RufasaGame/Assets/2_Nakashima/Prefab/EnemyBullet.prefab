@@ -128,7 +128,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1989990629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a6ad0a3422aee4ca14cf6bad707842, type: 3}
+  m_Script: {fileID: 11500000, guid: fc3ccf2374e6a6149ad156b0fe76c1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyBulletDamege: 1
