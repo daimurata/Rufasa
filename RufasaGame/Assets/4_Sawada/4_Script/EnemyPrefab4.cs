@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPrefab : MonoBehaviour
+public class EnemyPrefab4 : MonoBehaviour
 {
-    public static EnemyPrefab ep;
+    public static EnemyPrefab4 ep;
    public int enemycost;
     public GameObject enemyprefab;
     // Start is called before the first frame update

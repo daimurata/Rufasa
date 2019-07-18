@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 //プレイヤーを制御するスクリプト
-public class Player : MonoBehaviour
+public class Player4 : MonoBehaviour
 {
     //hpの最大値
     public int hpmax;
@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     //移動の速さ
     public float m_speed;
     //他のスクリプトで参照にされる時に使う
-    public static Player instance;
+    public static Player4 instance;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
         var velocity = new Vector3(h, v) * m_speed;
         transform.localPosition += velocity;
         // プレイヤーが画面外に出ないように位置を制限する
-        transform.localPosition = Utils.Clamppostion(transform.localPosition);
+        transform.localPosition = Utils4.Clamppostion(transform.localPosition);
         //弾の発射タイミングを管理するタイマーを更新する
         shottime += Time.deltaTime;
         //まだ弾の発射タイミングではない場合は、ここで処理を終える

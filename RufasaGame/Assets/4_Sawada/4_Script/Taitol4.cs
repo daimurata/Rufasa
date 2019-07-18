@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Taitol : MonoBehaviour
+public class Taitol4 : MonoBehaviour
 {
 
     // Start is called before the first frame update

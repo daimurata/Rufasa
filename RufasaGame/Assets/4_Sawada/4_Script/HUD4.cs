@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class HUD : MonoBehaviour
+public class HUD4 : MonoBehaviour
 {
     public GameObject GameoverText;
     //hpゲージ
@@ -17,7 +17,7 @@ public class HUD : MonoBehaviour
  private   void Update()
     {
         //プレイヤーを取得
-        var play = Player.instance;
+        var play = Player4.instance;
         //HPのゲージを更新
         var m_hp = play.hp;
         var m_hpmax = play.hpmax;
