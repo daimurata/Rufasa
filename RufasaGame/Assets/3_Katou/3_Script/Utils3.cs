@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 便利な関数を管理する静的クラス
-public static class Utils
+public static class  Utils3
 {
     // 移動可能な範囲
     public static Vector2 m_moveLimit = new Vector2(4.7f, 3.4f);

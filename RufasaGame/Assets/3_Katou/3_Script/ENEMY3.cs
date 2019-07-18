@@ -12,7 +12,7 @@ public enum RESPAWN_TYPE
 }
 
 // 敵を制御するコンポーネント
-public class ENEMY: MonoBehaviour
+public class ENEMY3: MonoBehaviour
 {
     public Vector2 m_respawnPosInside; // 敵の出現位置（内側）
     public Vector2 m_respawnPosOutside; // 敵の出現位置（外側）
@@ -40,10 +40,10 @@ public class ENEMY: MonoBehaviour
         if (m_isFollow)
         {
             // プレイヤーの現在位置へ向かうベクトルを作成する
-            var angle = Utils.GetAngle(
+            var angle = Utils3.GetAngle(
                 transform.localPosition,
-                PLAYER.m_instance.transform.localPosition);
-            var direction = Utils.GetDirection(angle);
+                PLAYER3.m_instance.transform.localPosition);
+            var direction = Utils3.GetDirection(angle);
 
             // プレイヤーが存在する方向に移動する
             transform.localPosition += direction * m_speed;
@@ -93,7 +93,7 @@ public class ENEMY: MonoBehaviour
         if (collision.name.Contains("Player"))
         {
             // プレイヤーにダメージを与える
-            var player = collision.GetComponent<PLAYER>();
+            var player = collision.GetComponent<PLAYER3>();
             player.Damage(m_damage);
             return;
         }

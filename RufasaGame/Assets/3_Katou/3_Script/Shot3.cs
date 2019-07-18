@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // プレイヤーが発射する弾を制御するコンポーネント
-public class Shot : MonoBehaviour
+public class Shot3 : MonoBehaviour
 {
     private Vector3 m_velocity; // 速度
     public float lifetime;      //自動消滅時間
@@ -25,7 +25,7 @@ public class Shot : MonoBehaviour
     public void Init(float angle, float speed)
     {
         // 弾の発射角度をベクトルに変換する
-        var direction = Utils.GetDirection(angle);
+        var direction = Utils3.GetDirection(angle);
 
         // 発射角度と速さから速度を求める
         m_velocity = direction * speed;
