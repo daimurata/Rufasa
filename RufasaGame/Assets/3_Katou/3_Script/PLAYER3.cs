@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // プレイヤーを制御するコンポーネント
-public class PLAYER : MonoBehaviour
+public class PLAYER3 : MonoBehaviour
 {
     public float m_speed; // 移動の速さ
     public GameObject Shot; // 弾のプレハブ
@@ -12,7 +12,7 @@ public class PLAYER : MonoBehaviour
     public int m_hpMax; // HP の最大値
     public int m_hp; // HP
     private Vector3 m_velocity; // 速度                           
-    public static PLAYER m_instance; // プレイヤーのインスタンスを管理する static 変数
+    public static PLAYER3 m_instance; // プレイヤーのインスタンスを管理する static 変数
 
 
     // ゲーム開始時に呼び出される関数
@@ -37,7 +37,7 @@ public class PLAYER : MonoBehaviour
         transform.localPosition += velocity;
 
         // プレイヤーが画面外に出ないように位置を制限する
-        transform.localPosition = Utils.ClampPosition(transform.localPosition);
+        transform.localPosition = Utils3.ClampPosition(transform.localPosition);
 
         // プレイヤーのスクリーン座標を計算する
         var screenPos = Camera.main.WorldToScreenPoint(transform.position);
@@ -46,7 +46,7 @@ public class PLAYER : MonoBehaviour
         var direction = Input.mousePosition - screenPos;
 
         // マウスカーソルが存在する方向の角度を取得する
-        var angle = Utils.GetAngle(Vector3.zero, direction);
+        var angle = Utils3.GetAngle(Vector3.zero, direction);
 
         // プレイヤーがマウスカーソルの方向を見るようにする
         var angles = transform.localEulerAngles;

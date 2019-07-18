@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 敵の出現を制御するコンポーネント
-public class EnemyManager : MonoBehaviour
+public class EnemyManager3 : MonoBehaviour
 {
-    public ENEMY[] m_enemyPrefabs; // 敵のプレハブを管理する配列
+    public ENEMY3[] m_enemyPrefabs; // 敵のプレハブを管理する配列
     public float m_interval; // 出現間隔（秒）
 
     private float m_timer; // 出現タイミングを管理するタイマー
