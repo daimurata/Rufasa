@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Utils : MonoBehaviour
+public class Utils4 : MonoBehaviour
 {
     // 移動可能な範囲
     public static Vector2 moveLimit = new Vector2(8.4f, 4.7f);

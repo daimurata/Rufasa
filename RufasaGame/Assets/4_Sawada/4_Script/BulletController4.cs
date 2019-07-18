@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class BulletController4 : MonoBehaviour
 {
    
     // Start is called before the first frame update

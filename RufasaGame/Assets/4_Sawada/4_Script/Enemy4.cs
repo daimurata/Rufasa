@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy4 : MonoBehaviour
 {
     //プレイヤーに与えるダメージ
     public int m_damge;
@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
         //プレイヤーにぶつかったらダメージを与える
         if (collison.name.Contains("player"))
         {
-            var player = collison.GetComponent<Player>();
+            var player = collison.GetComponent<Player4>();
             player.Dmage(m_damge);
             return;
         }
