@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scene : MonoBehaviour
+public class Scene2 : MonoBehaviour
 {
     //シーンの名前を入れる
     public string Name;

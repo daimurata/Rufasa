@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet2 : MonoBehaviour
 {
+
     //弾の威力
-    public int Damege = 1;
+    public int EnemyBulletDamege = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +18,12 @@ public class Bullet : MonoBehaviour
     {
         
     }
-
     void FixedUpdate()
     {
         //X側→方向にまっすぐ移動
-        transform.Translate(1.0f, 0.0f, 0.0f);
+        transform.Translate(-1.0f, 0.0f, 0.0f);
         //X方向に一定まで進んだら
-        if(transform.position.x > 10.0f)
+        if (transform.position.x < -10.0f)
         {
             //弾自身を消す
             Destroy(gameObject);

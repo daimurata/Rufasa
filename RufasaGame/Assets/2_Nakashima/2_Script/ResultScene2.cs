@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ResultScene : MonoBehaviour
+public class ResultScene2 : MonoBehaviour
 {
     public string ResultName;
     // Start is called before the first frame update
@@ -17,7 +17,6 @@ public class ResultScene : MonoBehaviour
     {
         
     }
-
     public void Click()
     {
         SceneManager.LoadScene(ResultName);

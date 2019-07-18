@@ -178,13 +178,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 185691772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cf46eb6608b16148ae8c0e31f82589e, type: 3}
+  m_Script: {fileID: 11500000, guid: 11c8cfd4666441c47a123e5fbb2b9ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHP: 3
   bullet1: {fileID: 4079532748156030821, guid: 439f0cabdb8eb574da3e05d35d1f31b5, type: 3}
   bullet2: {fileID: 5671645668150811176, guid: 189acd9f859b79f42a3b090dd2e0d0a9, type: 3}
   EnemyBullet: {fileID: 1989990629, guid: c5ba68272f136c244b3da85a14068194, type: 3}
+  Num: 0
 --- !u!212 &185691776
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -276,7 +277,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 400689069}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 178e6fd874ba8ee4ab2d967c8b16378b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4413ec79275013146bc02f5f3fee8b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet1: {fileID: 3851973576287023490, guid: 439f0cabdb8eb574da3e05d35d1f31b5, type: 3}
@@ -634,13 +635,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 774869593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cf46eb6608b16148ae8c0e31f82589e, type: 3}
+  m_Script: {fileID: 11500000, guid: 11c8cfd4666441c47a123e5fbb2b9ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHP: 3
   bullet1: {fileID: 4079532748156030821, guid: 439f0cabdb8eb574da3e05d35d1f31b5, type: 3}
   bullet2: {fileID: 5671645668150811176, guid: 189acd9f859b79f42a3b090dd2e0d0a9, type: 3}
   EnemyBullet: {fileID: 1989990629, guid: c5ba68272f136c244b3da85a14068194, type: 3}
+  Num: 0
 --- !u!58 &774869597
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -727,10 +729,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1038135874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02f46e52bd1ed234ba4ecc5ab2934f56, type: 3}
+  m_Script: {fileID: 11500000, guid: 3290f34f9440df04da10e08a3610dc4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResultName: Main
+  ResultName: Main2
 --- !u!114 &1038135877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,7 +942,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1173992925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb3025fe4432b834d909bb13b230db2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d3cd4922061102438a992097a9d8bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WinImage: {fileID: 1971764848}
@@ -1014,13 +1016,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1420630563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cf46eb6608b16148ae8c0e31f82589e, type: 3}
+  m_Script: {fileID: 11500000, guid: 11c8cfd4666441c47a123e5fbb2b9ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHP: 3
   bullet1: {fileID: 4079532748156030821, guid: 439f0cabdb8eb574da3e05d35d1f31b5, type: 3}
   bullet2: {fileID: 5671645668150811176, guid: 189acd9f859b79f42a3b090dd2e0d0a9, type: 3}
   EnemyBullet: {fileID: 1989990629, guid: c5ba68272f136c244b3da85a14068194, type: 3}
+  Num: 0
 --- !u!212 &1420630567
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1235,10 +1238,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1498867125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02f46e52bd1ed234ba4ecc5ab2934f56, type: 3}
+  m_Script: {fileID: 11500000, guid: 3290f34f9440df04da10e08a3610dc4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResultName: Title
+  ResultName: Title2
 --- !u!114 &1498867128
 MonoBehaviour:
   m_ObjectHideFlags: 0
