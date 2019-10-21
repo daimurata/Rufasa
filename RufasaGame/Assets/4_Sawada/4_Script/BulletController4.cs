@@ -17,9 +17,9 @@ public class BulletController4 : MonoBehaviour
         //弾の移動処理
         transform.Translate(0, 0.2f, 0);
         //弾が画面端まできたら消す
-        if (transform.position.x > 9)
+        if (!GetComponent<Renderer>().isVisible)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
