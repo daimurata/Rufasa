@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// プレイヤーの操作
@@ -8,9 +9,13 @@ using UnityEngine;
 public class Player_Control : MonoBehaviour
 {
     
-    public GameObject Player;   //プレイヤー
-    public float Speed, Pl_Mov=1;    //スピード,移動
-    public float[] Restriction_X, Restriction_Y;
+    public GameObject Player;                            //プレイヤー
+    public float Pl_Mov;                                 //移動速度
+    public float[] Restriction_X, Restriction_Y;         //移動範囲
+
+    public GameObject[] Bullet = new GameObject[2];      //通常弾、強弾
+    public Image[] HP_Mark = new Image[3];               //HPの画像
+    public int HP_Life=3;                                //HPの数値
 
     /// <summary>
     /// 初期データ
@@ -30,6 +35,27 @@ public class Player_Control : MonoBehaviour
         Move_Control();
         //移動制限
         Restriction_Mov();
+
+        //HP画像と数字を接続処理
+        HP_Control();
+
+        /////////
+        ///デバック用
+        /////////
+        if (Input.GetKeyDown(KeyCode.X)) //Xキー
+        {
+            HP_Life--;//HPが1減る
+        }
+        if (Input.GetKeyDown(KeyCode.Z))　//Zキー
+        {
+            HP_Life++;//HPが1増える
+        }
+        //////////
+        ///デバック用
+        //////////
+
+        //弾を発射処理
+        Bullet_Controller();
     }
 
     /// <summary>
@@ -110,5 +136,61 @@ public class Player_Control : MonoBehaviour
         }
         //【制限データ】を更新
         Player.transform.position = new Vector2(Pl_X,Pl_y);
+    }
+
+    /// <summary>
+    /// HP画像と数字を接続
+    /// </summary>
+    void HP_Control()
+    {
+        //HPが満タン
+        if (HP_Life==3)
+        {
+            HP_Mark[0].enabled = true;  //HP_1
+            HP_Mark[1].enabled = true;  //HP_2
+            HP_Mark[2].enabled = true;  //HP_3
+        }
+        //HPが残り2つ
+        if (HP_Life == 2)
+        {
+            HP_Mark[0].enabled = true;   //HP_1
+            HP_Mark[1].enabled = true;   //HP_2
+            HP_Mark[2].enabled = false;  //HP_3
+        }
+        //HPが残り1つ
+        if (HP_Life == 1)
+        {
+            HP_Mark[0].enabled = true;   //HP_1
+            HP_Mark[1].enabled = false;  //HP_2
+            HP_Mark[2].enabled = false;  //HP_3
+        }
+        //HPがゼロ
+        if (HP_Life == 0)
+        {
+            HP_Mark[0].enabled = false;  //HP_1
+            HP_Mark[1].enabled = false;  //HP_2
+            HP_Mark[2].enabled = false;  //HP_3
+            Destroy(gameObject);    //このオブジェクトを削除する
+        }
+    }
+
+    /// <summary>
+    /// 弾の発射
+    /// </summary>
+
+    void Bullet_Controller()
+    {
+        //左クリック
+        if (Input.GetMouseButtonDown(0))
+        {
+            //通常弾
+            Instantiate(Bullet[0], transform.position, Quaternion.identity);
+        }
+        //右クリック
+        if (Input.GetMouseButtonDown(1))
+        {
+            //強弾
+            Instantiate(Bullet[1], transform.position, Quaternion.identity);
+        }
     }
 }
