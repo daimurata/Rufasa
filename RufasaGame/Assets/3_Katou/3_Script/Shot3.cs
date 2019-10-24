@@ -36,5 +36,6 @@ public class Shot3 : MonoBehaviour
         transform.localEulerAngles = angles;
 
     }
+
    
 }
