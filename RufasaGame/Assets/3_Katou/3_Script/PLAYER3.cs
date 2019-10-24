@@ -5,7 +5,7 @@ using UnityEngine;
 // プレイヤーを制御するコンポーネント
 public class PLAYER3 : MonoBehaviour
 {
-    public GameObject explosionPrefab;   //爆発エフェクトのPrefab
+    public GameObject explosionPrefab;   //爆発エフェクトのPrefab                                        
     public float m_speed; // 移動の速さ
     public GameObject Shot; // 弾のプレハブ
     public float shotspeed; // 弾の移動の速さ
