@@ -184,7 +184,7 @@ public class Player_Control : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //通常弾
-            Instantiate(Bullet[0], transform.position, Quaternion.identity);
+            Instantiate(Bullet[0],transform.position, Quaternion.identity);
         }
         //右クリック
         if (Input.GetMouseButtonDown(1))

@@ -505,10 +505,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Staert_Text: {fileID: 959134480}
   Chamge: 0
-  Click_Chamge: 0
   Alpha: 0
   Alpha_Speed: 1
-  click: 0
 --- !u!1 &959134478
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +721,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30BF\u30A4\u30C8\u30EB"
+  m_Text: "Rufasa\u30B7\u30E5\u30FC\u30C6\u30A3\u30F3\u30B02D"
 --- !u!222 &1565350709
 CanvasRenderer:
   m_ObjectHideFlags: 0
