@@ -95,8 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 2
-  explosionPrefab: {fileID: 629351045408105881, guid: e3ebccdeafd83fa4789b02671e4bc308,
-    type: 3}
+  scoreComp: {fileID: 0}
 --- !u!50 &147623663073347150
 Rigidbody2D:
   serializedVersion: 4

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6525935750243359478}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038ef81695ec05041b5921ff754c3792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 0}
   m_speed: 0.1
   Shot: {fileID: 0}
   shotspeed: 0
