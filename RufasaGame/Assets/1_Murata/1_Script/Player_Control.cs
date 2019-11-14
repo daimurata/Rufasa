@@ -24,7 +24,13 @@ public class Player_Control : MonoBehaviour
     public Image[] HP_Mark = new Image[3];               
 
     //HPの数値
-    public int HP_Life=3;                                
+    public int HP_Life=3;
+
+    //弾の間隔
+    public float Bullet_intval;
+
+    //弾の次弾発射時間
+    public float Bullet_Time;
 
     /// <summary>
     /// 初期データ
@@ -189,11 +195,20 @@ public class Player_Control : MonoBehaviour
 
     void Bullet_Controller()
     {
-        //左クリック
-        if (Input.GetMouseButtonDown(0))
+        //弾の時間を加算
+        Bullet_Time += Time.deltaTime;
+
+        //次弾を撃てる時間なら
+        if (Bullet_Time>Bullet_intval)
         {
-            //通常弾
-            Instantiate(Bullet[0],transform.position, Quaternion.identity);
+            //左クリック
+            if (Input.GetMouseButton(0))
+            {
+                //通常弾
+                Instantiate(Bullet[0], transform.position, Quaternion.identity);
+            }
+            //弾のリセット
+            Bullet_Time = 0;
         }
         //右クリック
         if (Input.GetMouseButtonDown(1))
@@ -201,5 +216,6 @@ public class Player_Control : MonoBehaviour
             //強弾
             Instantiate(Bullet[1], transform.position, Quaternion.identity);
         }
+
     }
 }

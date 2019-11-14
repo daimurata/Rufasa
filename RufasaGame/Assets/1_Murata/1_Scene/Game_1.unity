@@ -867,6 +867,8 @@ MonoBehaviour:
   - {fileID: 1671356779}
   - {fileID: 1306278766}
   HP_Life: 3
+  Bullet_intval: 0.1
+  Bullet_Time: 0
 --- !u!212 &1194965973
 SpriteRenderer:
   m_ObjectHideFlags: 0

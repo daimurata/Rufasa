@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3967595594143542075}
   - component: {fileID: 3967595594143542074}
   - component: {fileID: 3967595594143542073}
+  - component: {fileID: 8681327998434125814}
   m_Layer: 0
   m_Name: Small_Enemy
   m_TagString: Untagged
@@ -125,3 +126,25 @@ MonoBehaviour:
     type: 3}
   Shoot_Tim: 2
   Reset_Tim: 0
+  Range: -9.46
+--- !u!50 &8681327998434125814
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3967595594143542076}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
