@@ -1268,7 +1268,7 @@ GameObject:
   - component: {fileID: 1720680488}
   - component: {fileID: 1720680487}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Enemy_System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1287,7 +1287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyCount: 0
-  Enemy: {fileID: 7219311217008028986, guid: 33f852b48cdaa5f4095d733477eadde3, type: 3}
+  Enemy: {fileID: 3967595594143542076, guid: d7088f43a11f18b48bf89fcce0307b6c, type: 3}
   RespawnTim: 0
   SpawnTim: 2
 --- !u!4 &1720680488

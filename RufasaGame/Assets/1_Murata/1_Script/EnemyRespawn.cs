@@ -7,10 +7,16 @@ using UnityEngine;
 /// </summary>
 public class EnemyRespawn : MonoBehaviour
 {
-    public int EnemyCount;  //敵の数
-    public GameObject Enemy;//敵の生成するもの
+    //敵の数
+    public int EnemyCount;
 
-    public float RespawnTim;//生成する時間
+    //敵の生成するもの
+    public GameObject Enemy;
+
+    //生成する時間
+    public float RespawnTim;
+
+    //時間を空ける
     public float SpawnTim;
 
     /// <summary>
@@ -38,7 +44,9 @@ public class EnemyRespawn : MonoBehaviour
             RespawnTim = 0;
         }
     }
-    //生成
+    /// <summary>
+    /// 敵を生成する
+    /// </summary>
     void EnemyControl()
     {
         //敵の数が40以下なら

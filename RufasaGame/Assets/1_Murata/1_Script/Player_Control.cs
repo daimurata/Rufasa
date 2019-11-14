@@ -8,14 +8,23 @@ using UnityEngine.UI;
 /// </summary>
 public class Player_Control : MonoBehaviour
 {
-    
-    public GameObject Player;                            //プレイヤー
-    public float Pl_Mov;                                 //移動速度
-    public float[] Restriction_X, Restriction_Y;         //移動範囲
+    //プレイヤー
+    public GameObject Player;                           
 
-    public GameObject[] Bullet = new GameObject[2];      //通常弾、強弾
-    public Image[] HP_Mark = new Image[3];               //HPの画像
-    public int HP_Life=3;                                //HPの数値
+    //移動速度
+    public float Pl_Mov;                                
+
+    //移動範囲
+    public float[] Restriction_X, Restriction_Y;         
+
+    //通常弾、強弾
+    public GameObject[] Bullet = new GameObject[2];      
+
+    //HPの画像
+    public Image[] HP_Mark = new Image[3];               
+
+    //HPの数値
+    public int HP_Life=3;                                
 
     /// <summary>
     /// 初期データ
