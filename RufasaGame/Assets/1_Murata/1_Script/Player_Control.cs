@@ -32,6 +32,11 @@ public class Player_Control : MonoBehaviour
     //弾の次弾発射時間
     public float Bullet_Time;
 
+    //リザルト表示
+    public GameObject Result_Canvas;
+
+    //敵生成をやめる
+    public GameObject Enemy_System;
     /// <summary>
     /// 初期データ
     /// </summary>
@@ -185,6 +190,9 @@ public class Player_Control : MonoBehaviour
             HP_Mark[0].enabled = false;  //HP_1
             HP_Mark[1].enabled = false;  //HP_2
             HP_Mark[2].enabled = false;  //HP_3
+
+            Result_Canvas.SetActive(true);//リザルト表示
+            Enemy_System.SetActive(false);//敵の生成をしない（非表示）
             Destroy(gameObject);    //このオブジェクトを削除する
         }
     }
@@ -217,5 +225,19 @@ public class Player_Control : MonoBehaviour
             Instantiate(Bullet[1], transform.position, Quaternion.identity);
         }
 
+    }
+    //当たったら
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //敵の弾に触れたとき
+        if(collision.name.Contains("Enemy_Bullet Variant")||
+            //敵に触れたとき
+                collision.name.Contains("Small_Enemy"))
+        {
+            //HPを1つ下げる
+            HP_Life--;
+            //触れた敵と弾は削除
+            Destroy(collision.gameObject);
+        }
     }
 }

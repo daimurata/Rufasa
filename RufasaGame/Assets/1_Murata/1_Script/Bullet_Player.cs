@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using say;
 
 /// <summary>
 /// 弾のコントロール
@@ -18,17 +19,18 @@ public class Bullet_Player : MonoBehaviour
     public float Range=9.46f;
 
     //スコア表示
-    public Text Score_Test;
+    public GameObject Score_Test;
 
     //加算する数値
-    public int Score_Num=100;
+    //public int Score_Num=100;
 
     /// <summary>
     /// 初期データ
     /// </summary>
     void Start()
     {
-
+        //Scoreを探す
+        Score_Test = GameObject.Find("Score");
     }
 
     /// <summary>
@@ -59,10 +61,18 @@ public class Bullet_Player : MonoBehaviour
             collision.name.Contains("Small_Enemy"))
         {
             //スコア加算
-            Score_Test.text = "Score:" + Score_Num;
-            //弾を削除する
-            Destroy(collision.gameObject);
+            Score_Manager Say = Score_Test.GetComponent<Score_Manager>();
+            //Score_ManagerのScore_UPを実行
+            Say.Score_UP();
             //触れた敵の弾を削除する
+            Destroy(collision.gameObject);
+
+            //敵の加算
+            Enemy_Count Sum = GetComponent<Enemy_Count>();
+            //実行
+            Sum.Enemy_Lost();
+
+            //弾を削除する
             Destroy(gameObject);
         }
     }

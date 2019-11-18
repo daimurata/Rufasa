@@ -36,7 +36,7 @@ public class Title_Blink : MonoBehaviour
         Blink();
 
         //ゲームシーンに行く
-        Click_GO();
+       // Click_GO();
     }
 
     /// <summary>
@@ -81,13 +81,13 @@ public class Title_Blink : MonoBehaviour
     /// <summary>
     /// ゲームシーンに行く
     /// </summary>
-    void Click_GO()
+    public void Click_GO()
     {
         //クリックしたら
-        if (Input.GetMouseButtonUp(0))
-        {
+        //if (Input.GetMouseButtonUp(0))
+        //{
             //ゲームシーンへ移動
             SceneManager.LoadScene("Game_1");
-        }
+        //}
     }
 }
