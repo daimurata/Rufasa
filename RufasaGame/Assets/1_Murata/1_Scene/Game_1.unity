@@ -1352,6 +1352,8 @@ MonoBehaviour:
   Bullet_Time: 0
   Result_Canvas: {fileID: 315271228}
   Enemy_System: {fileID: 1720680486}
+  Player_Blink: 3
+  Alpha: 1
 --- !u!212 &1194965973
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1824,10 +1826,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Count_Enemy: 0
-  MAX_Enemy: 10
+  MAX_Enemy: 40
   Result_Canvas: {fileID: 315271228}
   Clear_Text: {fileID: 703665390}
   Count: 1
+  Enemy_System: {fileID: 1720680486}
 --- !u!1 &1799042323
 GameObject:
   m_ObjectHideFlags: 0

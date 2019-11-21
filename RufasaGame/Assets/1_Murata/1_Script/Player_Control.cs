@@ -37,6 +37,11 @@ public class Player_Control : MonoBehaviour
 
     //敵生成をやめる
     public GameObject Enemy_System;
+
+    //時間点滅
+    public float Player_Blink = 3;
+    //α値
+    public float Alpha = 1;
     /// <summary>
     /// 初期データ
     /// </summary>
@@ -234,10 +239,29 @@ public class Player_Control : MonoBehaviour
             //敵に触れたとき
                 collision.name.Contains("Small_Enemy"))
         {
+            //キャラクターの点滅
+            PlayerBlink();
             //HPを1つ下げる
             HP_Life--;
             //触れた敵と弾は削除
             Destroy(collision.gameObject);
         }
+    }
+    /// <summary> 
+    /// キャラクターの点滅 次回ここから
+    /// </summary>
+
+    void PlayerBlink()
+    {
+        //減算
+        Player_Blink -= Time.deltaTime;
+
+        //時間がたつまで
+        if (0 <= Player_Blink)
+        {
+            //赤色に変更
+            GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, Alpha);
+        }
+        
     }
 }

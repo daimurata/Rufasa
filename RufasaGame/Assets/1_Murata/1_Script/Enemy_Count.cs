@@ -23,6 +23,9 @@ public class Enemy_Count : MonoBehaviour
     //カウント
     public int Count = 1;
 
+    //敵の生成を終了させる
+    public GameObject Enemy_System;
+
     /// <summary>
     /// 初期データ
     /// </summary>
@@ -45,6 +48,8 @@ public class Enemy_Count : MonoBehaviour
             Clear_Text.text = "GameClear";
             //黄色に変更
             Clear_Text.color = new Color(1,1,0,1);
+            //非表示する
+            Enemy_System.SetActive(false);
         }
     }
 

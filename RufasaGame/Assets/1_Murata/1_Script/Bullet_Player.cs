@@ -21,6 +21,8 @@ public class Bullet_Player : MonoBehaviour
     //スコア表示
     public GameObject Score_Test;
 
+    public GameObject Enemy;
+
     //加算する数値
     //public int Score_Num=100;
 
@@ -31,6 +33,8 @@ public class Bullet_Player : MonoBehaviour
     {
         //Scoreを探す
         Score_Test = GameObject.Find("Score");
+
+        Enemy = GameObject.Find("Enemy_System");
     }
 
     /// <summary>
@@ -55,10 +59,9 @@ public class Bullet_Player : MonoBehaviour
     //弾に衝突した判定
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //敵の弾が当たったら
-        if (collision.name.Contains("Enemy_Bullet Variant")||
-            //もしくは、小さな敵なら
-            collision.name.Contains("Small_Enemy"))
+        //小さな敵なに弾が当たったら
+        if (collision.name.Contains("Small_Enemy"))
+
         {
             //スコア加算
             Score_Manager Say = Score_Test.GetComponent<Score_Manager>();
@@ -68,12 +71,22 @@ public class Bullet_Player : MonoBehaviour
             Destroy(collision.gameObject);
 
             //敵の加算
-            Enemy_Count Sum = GetComponent<Enemy_Count>();
+            Enemy_Count Sum = Enemy.GetComponent<Enemy_Count>();
             //実行
             Sum.Enemy_Lost();
 
             //弾を削除する
             Destroy(gameObject);
         }
+        //敵の弾がプレイヤーの弾に当たったら
+        if (collision.name.Contains("Enemy_Bullet Variant"))
+        {
+            //触れた敵の弾を削除する
+            Destroy(collision.gameObject);
+
+            //弾を削除する
+            Destroy(gameObject);
+        }
+           
     }
 }
