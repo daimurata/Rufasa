@@ -59,4 +59,12 @@ public class EnemyRespawn : MonoBehaviour
             EnemyCount += 1;
         }
     }
+
+    /// <summary>
+    /// 敵が倒せなかった時
+    /// </summary>
+    public void Enemy_Dow()
+    {
+        EnemyCount -= 1;
+    }
 }

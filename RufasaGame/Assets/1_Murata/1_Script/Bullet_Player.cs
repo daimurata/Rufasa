@@ -21,6 +21,7 @@ public class Bullet_Player : MonoBehaviour
     //スコア表示
     public GameObject Score_Test;
 
+    //倒した数を加算
     public GameObject Enemy;
 
     //加算する数値
@@ -33,7 +34,7 @@ public class Bullet_Player : MonoBehaviour
     {
         //Scoreを探す
         Score_Test = GameObject.Find("Score");
-
+        //Enemy_System探す
         Enemy = GameObject.Find("Enemy_System");
     }
 

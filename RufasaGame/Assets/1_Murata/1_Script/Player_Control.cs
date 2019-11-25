@@ -39,14 +39,26 @@ public class Player_Control : MonoBehaviour
     public GameObject Enemy_System;
 
     //時間点滅
-    public float Player_Blink = 3;
+    public float Player_Blink = 2;
+
     //α値
     public float Alpha = 1;
+
+    //点滅分岐
+    private bool Flashing = false;
+
+    //切替
+    private bool Alpha_Flashing=true;
+
+    //強い弾討ちます
+    public GameObject Power_Bullet;
     /// <summary>
     /// 初期データ
     /// </summary>
     void Start()
     {
+        //Enemy_System探す
+        Power_Bullet = GameObject.Find("Enemy_System");
         
     }
 
@@ -64,23 +76,10 @@ public class Player_Control : MonoBehaviour
         //HP画像と数字を接続処理
         HP_Control();
 
-        /////////
-        ///デバック用
-        /////////
-        if (Input.GetKeyDown(KeyCode.X)) //Xキー
-        {
-            HP_Life--;//HPが1減る
-        }
-        if (Input.GetKeyDown(KeyCode.Z))　//Zキー
-        {
-            HP_Life++;//HPが1増える
-        }
-        //////////
-        ///デバック用
-        //////////
-
         //弾を発射処理
         Bullet_Controller();
+        //キャラクター点滅時間
+        PlayerBlink();
     }
 
     /// <summary>
@@ -223,15 +222,10 @@ public class Player_Control : MonoBehaviour
             //弾のリセット
             Bullet_Time = 0;
         }
-        //右クリック
-        if (Input.GetMouseButtonDown(1))
-        {
-            //強弾
-            Instantiate(Bullet[1], transform.position, Quaternion.identity);
-        }
-
     }
-    //当たったら
+    /// <summary>
+    /// 当たったら
+    /// </summary>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //敵の弾に触れたとき
@@ -239,8 +233,8 @@ public class Player_Control : MonoBehaviour
             //敵に触れたとき
                 collision.name.Contains("Small_Enemy"))
         {
-            //キャラクターの点滅
-            PlayerBlink();
+            //キャラクターの点滅　可能
+            Flashing = true;
             //HPを1つ下げる
             HP_Life--;
             //触れた敵と弾は削除
@@ -253,15 +247,77 @@ public class Player_Control : MonoBehaviour
 
     void PlayerBlink()
     {
-        //減算
-        Player_Blink -= Time.deltaTime;
-
-        //時間がたつまで
-        if (0 <= Player_Blink)
+        //点滅が可能なら
+        if (Flashing == true)
         {
-            //赤色に変更
-            GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, Alpha);
+            //切替
+            if(Alpha_Flashing==true)
+            {
+                //α値減算
+                Alpha -= 5*Time.deltaTime;
+                //0以下になったら
+                if (Alpha<=0.0f)
+                {
+                    //0に固定
+                    Alpha = 0.0f;
+                    //切替　加算
+                    Alpha_Flashing = false;
+                }
+             //切替　
+            }else if(Alpha_Flashing==false)
+            {
+                //α値加算
+                Alpha += 5*Time.deltaTime;
+                //1以上になったら
+                if (Alpha>=1.0f)
+                {
+                    //1に固定
+                    Alpha = 1.0f;
+                    //切替　減算
+                    Alpha_Flashing = true;
+                }
+            }
+ 
+
+
+            //減算
+            Player_Blink -= Time.deltaTime;
+            //時間がたつまで
+            if (0 <= Player_Blink)
+            {
+                //赤色に変更
+                GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, Alpha);
+            }
+            //0以下になったら
+            if (Player_Blink<=0)
+            {
+                //初期化　α値
+                Alpha = 1f;
+                //点滅終了
+                Flashing = false;
+                //初期化　点滅時間
+                Player_Blink = 3.0f;
+                //標準に表示
+                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, Alpha);
+            }
         }
-        
+    }
+    /// <summary>
+    ///　強力な攻撃
+    /// </summary>
+    public void MAX_Power()
+    {
+        //右クリック
+        if (Input.GetMouseButtonDown(1))
+        {
+            //強弾
+            Instantiate(Bullet[1], transform.position, Quaternion.identity);
+
+            //PowerDown
+            Enemy_Count Down = Power_Bullet.GetComponent<Enemy_Count>();
+
+            //実行
+            Down.Power_Down();
+        }
     }
 }

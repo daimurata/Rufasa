@@ -27,13 +27,16 @@ public class Enemy_Control : MonoBehaviour
 
     //敵を消す場所
     public float Range = -9.46f;
+    //倒せなくても生成させる
+    public GameObject Enemy_Dow;
 
     /// <summary>
     /// 初期データ
     /// </summary>
     void Start()
     {
-        
+        //Enemy_System探す
+        Enemy_Dow = GameObject.Find("Enemy_System");
     }
 
     
@@ -57,6 +60,10 @@ public class Enemy_Control : MonoBehaviour
         //X方向に一定まで進んだら
         if (Range>=transform.position.x)
         {
+            //敵生成数に減算
+            EnemyRespawn Dow = Enemy_Dow.GetComponent<EnemyRespawn>();
+            //減算　実行
+            Dow.Enemy_Dow();
             //自信を消す
             Destroy(gameObject);
         }
