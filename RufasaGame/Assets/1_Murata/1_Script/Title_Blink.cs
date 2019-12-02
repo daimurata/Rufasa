@@ -34,9 +34,6 @@ public class Title_Blink : MonoBehaviour
 
         //α値の点滅処理
         Blink();
-
-        //ゲームシーンに行く
-       // Click_GO();
     }
 
     /// <summary>
@@ -83,11 +80,7 @@ public class Title_Blink : MonoBehaviour
     /// </summary>
     public void Click_GO()
     {
-        //クリックしたら
-        //if (Input.GetMouseButtonUp(0))
-        //{
-            //ゲームシーンへ移動
-            SceneManager.LoadScene("Game_1");
-        //}
+        //ゲームシーンへ移動
+        SceneManager.LoadScene("Game_1");
     }
 }

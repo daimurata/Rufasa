@@ -1285,6 +1285,7 @@ GameObject:
   - component: {fileID: 1194965974}
   - component: {fileID: 1194965973}
   - component: {fileID: 1194965972}
+  - component: {fileID: 1194965976}
   - component: {fileID: 1194965971}
   - component: {fileID: 1194965975}
   m_Layer: 0
@@ -1352,8 +1353,8 @@ MonoBehaviour:
   Bullet_Time: 0
   Result_Canvas: {fileID: 315271228}
   Enemy_System: {fileID: 1720680486}
-  Player_Blink: 3
-  Alpha: 1
+  Power_Bullet: {fileID: 0}
+  Player_Color: {fileID: 0}
 --- !u!212 &1194965973
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1437,6 +1438,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1194965976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194965970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4652c8cc67f22b4f819fb7245049265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Power_Player: {fileID: 0}
+  Player_Blink: 3
+  Speed_Color: 2
 --- !u!1 &1235221444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,6 +1847,9 @@ MonoBehaviour:
   Clear_Text: {fileID: 703665390}
   Count: 1
   Enemy_System: {fileID: 1720680486}
+  Power_Player: {fileID: 0}
+  MAX_Bullt: 0
+  Color_Ply: {fileID: 0}
 --- !u!1 &1799042323
 GameObject:
   m_ObjectHideFlags: 0

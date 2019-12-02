@@ -38,23 +38,12 @@ public class Player_Control : MonoBehaviour
     //敵生成をやめる
     public GameObject Enemy_System;
 
-    //時間点滅
-    public float Player_Blink = 2;
-
-    //α値
-    public float Alpha = 1;
-
-    //点滅分岐
-    private bool Flashing = false;
-
-    //切替
-    private bool Alpha_Flashing=true;
-
     //強い弾討ちます
     public GameObject Power_Bullet;
 
-    //変更切替
-    public bool Color_Change=false;
+    public GameObject Player_Color;
+
+
     /// <summary>
     /// 初期データ
     /// </summary>
@@ -62,7 +51,9 @@ public class Player_Control : MonoBehaviour
     {
         //Enemy_System探す
         Power_Bullet = GameObject.Find("Enemy_System");
-        
+
+        // Playerを探す
+        Player_Color = GameObject.Find("Player");
     }
 
 
@@ -73,6 +64,7 @@ public class Player_Control : MonoBehaviour
     {
         //移動処理
         Move_Control();
+
         //移動制限
         Restriction_Mov();
 
@@ -81,9 +73,9 @@ public class Player_Control : MonoBehaviour
 
         //弾を発射処理
         Bullet_Controller();
-        //キャラクター点滅時間
-        PlayerBlink();
 
+        //キャラクター点滅時間
+         PlayerBlink();
     }
 
     /// <summary>
@@ -235,84 +227,29 @@ public class Player_Control : MonoBehaviour
         //敵の弾に触れたとき
         if(collision.name.Contains("Enemy_Bullet Variant")||
             //敵に触れたとき
-                collision.name.Contains("Small_Enemy"))
+            collision.name.Contains("Small_Enemy"))
         {
-            //キャラクターの点滅　可能
-            Flashing = true;
             //HPを1つ下げる
             HP_Life--;
+
             //触れた敵と弾は削除
             Destroy(collision.gameObject);
-
-            //色変更
-            Color_Change = true;
-
-            Enemy_Count Color_mod = Power_Bullet.GetComponent<Enemy_Count>();
-            Color_mod.true_col();
+            
+            //点滅処理
+            Player_Color Alfe = Player_Color.GetComponent<Player_Color>();
+            //実行
+            Alfe.Alfe_true();
         }
     }
     /// <summary> 
     /// キャラクターの点滅 
     /// </summary>
-
-    void PlayerBlink()
+    public void PlayerBlink()
     {
-        //点滅が可能なら
-        if (Flashing == true)
-        {
-            //切替
-            if(Alpha_Flashing==true)
-            {
-                //α値減算
-                Alpha -= 5*Time.deltaTime;
-                //0以下になったら
-                if (Alpha<=0.0f)
-                {
-                    //0に固定
-                    Alpha = 0.0f;
-                    //切替　加算
-                    Alpha_Flashing = false;
-                }
-             //切替　
-            }else if(Alpha_Flashing==false)
-            {
-                //α値加算
-                Alpha += 5*Time.deltaTime;
-                //1以上になったら
-                if (Alpha>=1.0f)
-                {
-                    //1に固定
-                    Alpha = 1.0f;
-                    //切替　減算
-                    Alpha_Flashing = true;
-                }
-            }
- 
-
-
-            //減算 α値
-            Player_Blink -= Time.deltaTime;
-            //キャラを赤くする
-            Red_PL();
-            //0以下になったら
-            if (Player_Blink<=0)
-            {
-                //初期化　α値
-                Alpha = 1f;
-                //点滅終了
-                Flashing = false;
-                //初期化　点滅時間
-                Player_Blink = 3.0f;
-
-                //色変え終わり
-                Color_Change = false;
-                
-                //色の変更
-                Enemy_Count Color_tru = Power_Bullet.GetComponent<Enemy_Count>();
-                Color_tru.False_col();
-
-            }
-        }
+        //点滅処理
+        Player_Color PLy_Col = Player_Color.GetComponent<Player_Color>();
+        //実行
+        PLy_Col.Alfa_Blink();
     }
     /// <summary>
     ///　強力な攻撃
@@ -322,41 +259,15 @@ public class Player_Control : MonoBehaviour
         //右クリック
         if (Input.GetMouseButtonDown(1))
         {
-            //強弾
+            //強弾を生成する
             Instantiate(Bullet[1], transform.position, Quaternion.identity);
 
-            //PowerDown
+            //PowerDownは強力な弾を撃ち終わったら
             Enemy_Count Down = Power_Bullet.GetComponent<Enemy_Count>();
 
             //実行
             Down.Power_Down();
         }
     }
-    /// <summary>
-    /// 色の固定
-    /// </summary>
-    public void Color_System()
-    {
-        //falseなら
-        if (Color_Change==false)
-        {
-            //条件付き色固定
-            Enemy_Count Cl_PL = Power_Bullet.GetComponent<Enemy_Count>();
-            //実行
-            Cl_PL.Color_Pl();
-        }
-    }
-
-    /// <summary>
-    /// キャラクターを赤くする
-    /// </summary>
-    public void Red_PL()
-    {
-        //時間がたつまで
-        if (0 <= Player_Blink && Color_Change == true)
-        {
-            //赤色に変更
-            GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, Alpha);
-        }
-    }
 }
+

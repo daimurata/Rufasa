@@ -21,7 +21,7 @@ public class Enemy_Count : MonoBehaviour
     public Text Clear_Text;
 
     //カウント
-    public int Count = 1;
+    public int Count = 0;
 
     //敵の生成を終了させる
     public GameObject Enemy_System;
@@ -32,16 +32,19 @@ public class Enemy_Count : MonoBehaviour
     //弾の加算（強力な）
     public int MAX_Bullt;
 
-    //弾を撃つ際の色変更
-    public bool Change_mode=false;
+    //色の変更
+    public GameObject Color_Ply;
 
     /// <summary>
     /// 初期データ
     /// </summary>
     void Start()
     {
-        //Player
+        //Playerを探す
         Power_Player = GameObject.Find("Player");
+
+        //Playerを探す
+        Color_Ply = GameObject.Find("Player");
     }
 
     /// <summary>
@@ -63,8 +66,6 @@ public class Enemy_Count : MonoBehaviour
         }
         //強力な弾撃てる
         Power();
-        //色の固定
-        Color_Pl();
     }
 
     /// <summary>
@@ -85,29 +86,18 @@ public class Enemy_Count : MonoBehaviour
     public void Power()
     {
         //強力な弾が5以上なら
-        if (MAX_Bullt>=5 && Change_mode == false)
+        if (MAX_Bullt>=5 )
         {
-            //黄色に変換
-            Power_Player.GetComponent<SpriteRenderer>().color = new Color(1,1,0,1);
+            //黄色に設定
+            Player_Color Col_Ply =Color_Ply.GetComponent<Player_Color>();
+            //実行
+            Col_Ply.Yellow_Color();
 
-            //弾を撃つ
+            //弾を撃つことを
             Player_Control GO = Power_Player.GetComponent<Player_Control>();
-
             //実行
             GO.MAX_Power();
         }
-        if (MAX_Bullt>=5&&Change_mode==true)
-        {
-
-            //弾を撃つ
-            Player_Control GO = Power_Player.GetComponent<Player_Control>();
-
-            //実行
-            GO.MAX_Power();
-
-            GO.Red_PL();
-        }
-
     }
     /// <summary>
     /// 色の変更
@@ -115,42 +105,20 @@ public class Enemy_Count : MonoBehaviour
     public void Color_Pl()
     {
         //5より小さいなら
-        if (MAX_Bullt < 5&&Change_mode==true)
+        if (MAX_Bullt < 5)
         {
-            //元の色に戻す
-            Power_Player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-        }
-
-          //5より小さいなら
-        if (MAX_Bullt < 5 && Change_mode == false)
-        {
-                //元の色に戻す
-                Power_Player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            //通常色に設定
+            //ココPlayer_Color配置
+            // Normal_Color();
         }
     }
 
     /// <summary>
     /// 強力な弾撃ち終わり
     /// </summary>
-
     public void Power_Down()
     {
         //強力な弾ゲージDown
         MAX_Bullt -= 5;
-    }
-
-
-    //強制変更
-    public void False_col()
-    {
-        //色変
-        Change_mode = false;
-    }
-
-    //強制変更
-    public void true_col()
-    {
-        //色変更
-        Change_mode = true;
     }
 }
