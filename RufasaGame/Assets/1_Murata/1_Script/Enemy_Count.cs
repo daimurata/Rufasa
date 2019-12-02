@@ -32,6 +32,9 @@ public class Enemy_Count : MonoBehaviour
     //弾の加算（強力な）
     public int MAX_Bullt;
 
+    //弾を撃つ際の色変更
+    public bool Change_mode=false;
+
     /// <summary>
     /// 初期データ
     /// </summary>
@@ -60,6 +63,8 @@ public class Enemy_Count : MonoBehaviour
         }
         //強力な弾撃てる
         Power();
+        //色の固定
+        Color_Pl();
     }
 
     /// <summary>
@@ -80,7 +85,7 @@ public class Enemy_Count : MonoBehaviour
     public void Power()
     {
         //強力な弾が5以上なら
-        if (MAX_Bullt>=5)
+        if (MAX_Bullt>=5 && Change_mode == false)
         {
             //黄色に変換
             Power_Player.GetComponent<SpriteRenderer>().color = new Color(1,1,0,1);
@@ -91,13 +96,39 @@ public class Enemy_Count : MonoBehaviour
             //実行
             GO.MAX_Power();
         }
+        if (MAX_Bullt>=5&&Change_mode==true)
+        {
+
+            //弾を撃つ
+            Player_Control GO = Power_Player.GetComponent<Player_Control>();
+
+            //実行
+            GO.MAX_Power();
+
+            GO.Red_PL();
+        }
+
+    }
+    /// <summary>
+    /// 色の変更
+    /// </summary>
+    public void Color_Pl()
+    {
         //5より小さいなら
-        if (MAX_Bullt<5)
+        if (MAX_Bullt < 5&&Change_mode==true)
         {
             //元の色に戻す
-            //Power_Player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            Power_Player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        }
+
+          //5より小さいなら
+        if (MAX_Bullt < 5 && Change_mode == false)
+        {
+                //元の色に戻す
+                Power_Player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         }
     }
+
     /// <summary>
     /// 強力な弾撃ち終わり
     /// </summary>
@@ -106,5 +137,20 @@ public class Enemy_Count : MonoBehaviour
     {
         //強力な弾ゲージDown
         MAX_Bullt -= 5;
+    }
+
+
+    //強制変更
+    public void False_col()
+    {
+        //色変
+        Change_mode = false;
+    }
+
+    //強制変更
+    public void true_col()
+    {
+        //色変更
+        Change_mode = true;
     }
 }

@@ -52,6 +52,9 @@ public class Player_Control : MonoBehaviour
 
     //強い弾討ちます
     public GameObject Power_Bullet;
+
+    //変更切替
+    public bool Color_Change=false;
     /// <summary>
     /// 初期データ
     /// </summary>
@@ -80,6 +83,7 @@ public class Player_Control : MonoBehaviour
         Bullet_Controller();
         //キャラクター点滅時間
         PlayerBlink();
+
     }
 
     /// <summary>
@@ -239,10 +243,16 @@ public class Player_Control : MonoBehaviour
             HP_Life--;
             //触れた敵と弾は削除
             Destroy(collision.gameObject);
+
+            //色変更
+            Color_Change = true;
+
+            Enemy_Count Color_mod = Power_Bullet.GetComponent<Enemy_Count>();
+            Color_mod.true_col();
         }
     }
     /// <summary> 
-    /// キャラクターの点滅 次回ここから
+    /// キャラクターの点滅 
     /// </summary>
 
     void PlayerBlink()
@@ -280,14 +290,10 @@ public class Player_Control : MonoBehaviour
  
 
 
-            //減算
+            //減算 α値
             Player_Blink -= Time.deltaTime;
-            //時間がたつまで
-            if (0 <= Player_Blink)
-            {
-                //赤色に変更
-                GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, Alpha);
-            }
+            //キャラを赤くする
+            Red_PL();
             //0以下になったら
             if (Player_Blink<=0)
             {
@@ -297,8 +303,14 @@ public class Player_Control : MonoBehaviour
                 Flashing = false;
                 //初期化　点滅時間
                 Player_Blink = 3.0f;
-                //標準に表示
-                GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, Alpha);
+
+                //色変え終わり
+                Color_Change = false;
+                
+                //色の変更
+                Enemy_Count Color_tru = Power_Bullet.GetComponent<Enemy_Count>();
+                Color_tru.False_col();
+
             }
         }
     }
@@ -318,6 +330,33 @@ public class Player_Control : MonoBehaviour
 
             //実行
             Down.Power_Down();
+        }
+    }
+    /// <summary>
+    /// 色の固定
+    /// </summary>
+    public void Color_System()
+    {
+        //falseなら
+        if (Color_Change==false)
+        {
+            //条件付き色固定
+            Enemy_Count Cl_PL = Power_Bullet.GetComponent<Enemy_Count>();
+            //実行
+            Cl_PL.Color_Pl();
+        }
+    }
+
+    /// <summary>
+    /// キャラクターを赤くする
+    /// </summary>
+    public void Red_PL()
+    {
+        //時間がたつまで
+        if (0 <= Player_Blink && Color_Change == true)
+        {
+            //赤色に変更
+            GetComponent<SpriteRenderer>().color = new Color(1.0f, 0.0f, 0.0f, Alpha);
         }
     }
 }
