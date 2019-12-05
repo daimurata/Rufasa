@@ -14,6 +14,7 @@ public enum RESPAWN_TYPE
 // 敵を制御するコンポーネント
 public class ENEMY3: MonoBehaviour
 {
+    public GameObject explosionPrefab;   //爆発エフェクトのPrefab
     public Vector2 m_respawnPosInside; // 敵の出現位置（内側）
     public Vector2 m_respawnPosOutside; // 敵の出現位置（外側）
     public float m_speed; // 移動する速さ
@@ -109,6 +110,9 @@ public class ENEMY3: MonoBehaviour
 
             // 敵の HP がまだ残っている場合はここで処理を終える
             if (0 < m_hp) return;
+            // 爆発エフェクトを生成する	
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
 
             // 敵を削除する
             Destroy(gameObject);

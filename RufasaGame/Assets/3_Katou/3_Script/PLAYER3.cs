@@ -5,6 +5,7 @@ using UnityEngine;
 // プレイヤーを制御するコンポーネント
 public class PLAYER3 : MonoBehaviour
 {
+    public GameObject explosionPrefab;   //爆発エフェクトのPrefab                                        
     public float m_speed; // 移動の速さ
     public GameObject Shot; // 弾のプレハブ
     public float shotspeed; // 弾の移動の速さ
@@ -82,6 +83,10 @@ public class PLAYER3 : MonoBehaviour
 
         // HP がまだある場合、ここで処理を終える
         if (0 < m_hp) return;
+
+        // 爆発エフェクトを生成する	
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
 
         // プレイヤーが死亡したので非表示にする
         // 本来であれば、ここでゲームオーバー演出を再生したりする

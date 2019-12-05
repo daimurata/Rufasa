@@ -7,10 +7,13 @@ public class Shot3 : MonoBehaviour
 {
     private Vector3 m_velocity; // 速度
     public float lifetime;      //自動消滅時間
-
+    public Score scoreComp;  //Scoreコンポーネント
 
     void Start()
     {
+        //シーン内にあるScoreコンポーネントを確保
+        scoreComp = GameObject.Find("ScoreText").GetComponent<Score>();
+
         Destroy(gameObject, lifetime); //設定時間後弾丸は消滅する
     }
 
@@ -36,5 +39,11 @@ public class Shot3 : MonoBehaviour
         transform.localEulerAngles = angles;
 
     }
-   
+
+    //衝突時処理：Scoreコンポーネントの衝突時メソッドにタグを渡す
+    void OnCollisionEnter(Collision collision)
+    {
+        scoreComp.HitShot(collision.gameObject.tag);
+    }
+
 }
