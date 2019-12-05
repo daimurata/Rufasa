@@ -41,6 +41,7 @@ public class Player_Control : MonoBehaviour
     //強い弾討ちます
     public GameObject Power_Bullet;
 
+    //プレイヤーの色変え
     public GameObject Player_Color;
 
 
@@ -234,11 +235,11 @@ public class Player_Control : MonoBehaviour
 
             //触れた敵と弾は削除
             Destroy(collision.gameObject);
-            
-            //点滅処理
-            Player_Color Alfe = Player_Color.GetComponent<Player_Color>();
+
+            //点滅
+            Enemy_Count Change = Power_Bullet.GetComponent<Enemy_Count>();
             //実行
-            Alfe.Alfe_true();
+            Change.Change_Red();
         }
     }
     /// <summary> 

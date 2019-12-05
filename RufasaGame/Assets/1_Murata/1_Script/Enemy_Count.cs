@@ -35,6 +35,9 @@ public class Enemy_Count : MonoBehaviour
     //色の変更
     public GameObject Color_Ply;
 
+    //点滅処理に追加
+    private bool Change_Color=false;
+
     /// <summary>
     /// 初期データ
     /// </summary>
@@ -66,6 +69,8 @@ public class Enemy_Count : MonoBehaviour
         }
         //強力な弾撃てる
         Power();
+        //小さい場合
+       Color_Pl();
     }
 
     /// <summary>
@@ -88,11 +93,22 @@ public class Enemy_Count : MonoBehaviour
         //強力な弾が5以上なら
         if (MAX_Bullt>=5 )
         {
-            //黄色に設定
-            Player_Color Col_Ply =Color_Ply.GetComponent<Player_Color>();
-            //実行
-            Col_Ply.Yellow_Color();
-
+            //赤色にして点滅点滅させる
+            if (Change_Color==true)
+            {
+                //点滅処理
+                Player_Color Alfe = Color_Ply.GetComponent<Player_Color>();
+                //実行
+                Alfe.Alfe_true();
+            }
+            //黄色に戻す
+            else
+            {
+                //黄色に設定
+                Player_Color Col_Ply = Color_Ply.GetComponent<Player_Color>();
+                //実行
+                Col_Ply.Yellow_Color();
+            }
             //弾を撃つことを
             Player_Control GO = Power_Player.GetComponent<Player_Control>();
             //実行
@@ -107,9 +123,22 @@ public class Enemy_Count : MonoBehaviour
         //5より小さいなら
         if (MAX_Bullt < 5)
         {
-            //通常色に設定
-            //ココPlayer_Color配置
-            // Normal_Color();
+            //赤色にして点滅させる
+            if (Change_Color==true)
+            {
+                //点滅処理
+                Player_Color Alfe = Color_Ply.GetComponent<Player_Color>();
+                //実行
+                Alfe.Alfe_true();
+            }
+            //通常色に戻す
+            else
+            {
+                //通常色に設定
+                Player_Color Color_Normal = Color_Ply.GetComponent<Player_Color>();
+                //実行
+                Color_Normal.Normal_Color();
+            }
         }
     }
 
@@ -120,5 +149,23 @@ public class Enemy_Count : MonoBehaviour
     {
         //強力な弾ゲージDown
         MAX_Bullt -= 5;
+    }
+
+    /// <summary>
+    /// 点滅可能とさせる
+    /// </summary>
+    public void Change_Red()
+    {
+        //点滅許可
+        Change_Color = true;
+    }
+
+    /// <summary>
+    /// 点滅から戻す
+    /// </summary>
+    public void Change_Normal()
+    {
+        //点滅終了
+        Change_Color = false;
     }
 }

@@ -14,22 +14,20 @@ namespace say
         public int Score = 0;       //スコア数字
         public int Up_Score = 100;  //加算する数値
 
-        //初期
+        /// <summary>
+        /// 初期データ
+        /// </summary>
         void Start()
         {
 
         }
 
-        //更新
+        /// <summary>
+        /// 常に更新
+        /// </summary>
         void Update()
         {
-            //デバック
-            //Score_Text.text = "Score:" + Score;
 
-            //if (Input.GetKeyDown(KeyCode.O))
-            //{
-            // Score += Up_Score;
-            //}
         }
         /// <summary>
         /// スコア加算

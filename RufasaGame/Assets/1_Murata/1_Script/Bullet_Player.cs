@@ -24,9 +24,6 @@ public class Bullet_Player : MonoBehaviour
     //倒した数を加算
     public GameObject Enemy;
 
-    //加算する数値
-    //public int Score_Num=100;
-
     /// <summary>
     /// 初期データ
     /// </summary>

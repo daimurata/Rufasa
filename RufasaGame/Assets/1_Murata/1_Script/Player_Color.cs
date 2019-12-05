@@ -7,8 +7,8 @@ using UnityEngine;
 /// </summary>
 public class Player_Color : MonoBehaviour
 {
-    //Playerを持ってきます
-    public GameObject Power_Player;
+    //Enemy_Countを入れる
+    public GameObject Enemy_Con;
 
     //色の設定
     private float Red = 1.0f, Green = 1.0f, Blue = 1.0f, Alpha = 1.0f;
@@ -30,8 +30,8 @@ public class Player_Color : MonoBehaviour
     /// </summary>
     void Start()
     {
-        //Player
-        Power_Player = GameObject.Find("Player");
+        //Enemy_System探す
+        Enemy_Con = GameObject.Find("Enemy_System");
     }
 
     /// <summary>
@@ -39,7 +39,14 @@ public class Player_Color : MonoBehaviour
     /// </summary>
     void Update()
     {
-
+        /*
+        //強力な弾を撃つ
+        Enemy_Count MAX_Count = Enemy_Con.GetComponent<Enemy_Count>();
+        //実行
+        MAX_Count.Power();
+        //色変え
+        MAX_Count.Color_Pl();
+        */
     }
     /// <summary>
     /// 通常色にする
@@ -59,8 +66,7 @@ public class Player_Color : MonoBehaviour
         Alpha = 1.0f;
 
         //反映
-        //Power_Player.
-            GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, Alpha);
+        GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, Alpha);
     }
 
     /// <summary>
@@ -81,8 +87,7 @@ public class Player_Color : MonoBehaviour
         Alpha = 1.0f;
 
         //反映
-        //Power_Player.
-            GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, Alpha);
+        GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, Alpha);
     }
 
     /// <summary>
@@ -100,11 +105,10 @@ public class Player_Color : MonoBehaviour
         Blue = 0.0f;
 
         //透明度
-        Alpha = 1.0f;
+       // Alpha = 1.0f;
 
         //反映
-        //Power_Player.
-            GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, Alpha);
+        GetComponent<SpriteRenderer>().color = new Color(Red, Green, Blue, Alpha);
     }
     /// <summary>
     /// α値の変更
@@ -163,7 +167,9 @@ public class Player_Color : MonoBehaviour
                 Player_Blink = 3.0f;
 
                 //通常の色に変更
-                Normal_Color();
+                //Normal_Color();
+                Enemy_Count Change = Enemy_Con.GetComponent<Enemy_Count>();
+                Change.Change_Normal();
             }
         }
     }
