@@ -1450,7 +1450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4652c8cc67f22b4f819fb7245049265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Power_Player: {fileID: 0}
+  Enemy_Con: {fileID: 0}
   Player_Blink: 3
   Speed_Color: 2
 --- !u!1 &1235221444
