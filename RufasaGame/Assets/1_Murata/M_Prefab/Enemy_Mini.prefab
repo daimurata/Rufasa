@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7838515588681054916}
   - component: {fileID: 4943759340827834790}
   - component: {fileID: 5289502271935115705}
+  - component: {fileID: 3977251642864424178}
   m_Layer: 0
   m_Name: Enemy_Mini
   m_TagString: Untagged
@@ -91,7 +92,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -119,6 +120,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be2ab0ef3941a9743b46e5651f529918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy_Life: 3
-  Enemy_Speed: 1
-  Enemy_Ball: {fileID: 0}
+  Enemy_Life: 5
+  Enemy_Speed:
+  - 1
+  - 2
+  Pos: {x: 0, y: 0}
+  Enemy_Bullet: {fileID: 8402950242505754948, guid: e61921994a012cd4784d08c1617c2696,
+    type: 3}
+  Shoot_Tim: 1
+  Reset_Tim: 0
+  Range: -9.46
+  Enemy_Dow: {fileID: 0}
+  HP_Damage: 1
+  HP_BIG_Damage: 3
+  Score_Text: {fileID: 0}
+  X_GO: 1
+  Y_GO: 1
+  Y_Restriction:
+  - 2.7
+  - -4
+--- !u!50 &3977251642864424178
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4052628370187967556}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

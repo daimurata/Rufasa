@@ -21,7 +21,7 @@ public class Enemy_Count : MonoBehaviour
     public Text Clear_Text;
 
     //カウント
-    public int Count = 0;
+    private int Count = 1;
 
     //敵の生成を終了させる
     public GameObject Enemy_System;
@@ -56,7 +56,7 @@ public class Enemy_Count : MonoBehaviour
     void Update()
     {
         //加算した敵の数とMAXの敵の数が同じなら
-        if (Count_Enemy==MAX_Enemy)
+        if (Count_Enemy >= MAX_Enemy)
         {
             //リザルトを表示
             Result_Canvas.SetActive(true);
@@ -91,7 +91,7 @@ public class Enemy_Count : MonoBehaviour
     public void Power()
     {
         //強力な弾が5以上なら
-        if (MAX_Bullt>=5 )
+        if (MAX_Bullt >= 5 )
         {
             //赤色にして点滅点滅させる
             if (Change_Color==true)

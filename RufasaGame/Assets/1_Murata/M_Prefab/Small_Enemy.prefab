@@ -121,12 +121,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy_Life: 1
-  Enemy_Speed: 1
+  Enemy_Speed:
+  - 1
+  - 2
+  Pos: {x: 0, y: 0}
   Enemy_Bullet: {fileID: 8402950242505754948, guid: e61921994a012cd4784d08c1617c2696,
     type: 3}
   Shoot_Tim: 2
   Reset_Tim: 0
   Range: -9.46
+  Enemy_Dow: {fileID: 0}
+  HP_Damage: 1
+  HP_BIG_Damage: 3
+  Score_Text: {fileID: 0}
+  X_Go: 1
+  Y_GO: 0
+  Y_Restriction:
+  - 3.3
+  - -4.7
 --- !u!50 &8681327998434125814
 Rigidbody2D:
   serializedVersion: 4

@@ -226,15 +226,19 @@ public class Player_Control : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //敵の弾に触れたとき
-        if(collision.name.Contains("Enemy_Bullet Variant")||
+        if(collision.name.Contains("Enemy_Bullet Variant") ||
             //敵に触れたとき
-            collision.name.Contains("Small_Enemy"))
+            collision.name.Contains("Small_Enemy")||
+                //中ボスに触れたとき
+                collision.name.Contains("Enemy_Mini")||
+                //大ボスに触れたとき
+                collision.name.Contains("Boss_Enemy"))
         {
             //HPを1つ下げる
             HP_Life--;
 
             //触れた敵と弾は削除
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
 
             //点滅
             Enemy_Count Change = Power_Bullet.GetComponent<Enemy_Count>();

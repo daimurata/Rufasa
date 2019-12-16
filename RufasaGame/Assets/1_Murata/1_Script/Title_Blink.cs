@@ -14,14 +14,12 @@ public class Title_Blink : MonoBehaviour
     public bool Chamge = false;//点滅切替
 
     public float Alpha,Alpha_Speed;//α値とαスピードとクリック
-
-
     /// <summary>
     /// 初期データ
     /// </summary>
     void Start()
     {
-        
+
     }
 
    /// <summary>
@@ -30,7 +28,7 @@ public class Title_Blink : MonoBehaviour
     void Update()
     {
         //α値の更新
-        Staert_Text.GetComponent<Text>().color = new Color(0, 0, 0, Alpha);
+        Staert_Text.GetComponent<Text>().color = new Color(1, 1, 1, Alpha);
 
         //α値の点滅処理
         Blink();

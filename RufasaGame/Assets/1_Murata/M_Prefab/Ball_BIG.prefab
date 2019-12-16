@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4721464714810290866}
   - component: {fileID: 6828097305679450052}
   - component: {fileID: 7907723196057048126}
-  - component: {fileID: 6855851756879817110}
+  - component: {fileID: 890431170382433806}
   m_Layer: 0
   m_Name: Ball_BIG
   m_TagString: Untagged
@@ -97,7 +97,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.89
---- !u!114 &6855851756879817110
+--- !u!114 &890431170382433806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,9 +106,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 102111814985922831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea98416553d46a49aa588415e7d2c0a, type: 3}
+  m_Script: {fileID: 11500000, guid: 989c13baa94b73645b4dc0f0f11f5aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
-  Mov_X: 0.5
+  Mov_X: 0.1
   Range: 9.46
+  Big_Bullet_HP: 2
