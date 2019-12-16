@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">    
-        <title>2Dシューティング　Character</title>
+        <title>2Dシューティング　Title</title>
         <link href="../CSS/Main.css" rel="stylesheet" type="text/css">
     </head>
     <body>
@@ -28,49 +28,39 @@
         </dl>
         <dl class="PD">
             <div id="Explanation">
-                <h1>キャラクター処理の説明</h1>
+                <h1>Titleの編集</h1>
             </div>
             <div id="SubExplanation">
-                <h2>キャラクターの移動処理記入</h2>
+                <h2>Start_Buttonの編集</h2>
             </div>
             <a>
-                Game_1(Scene) → Player の順に移動して Player_Control を編集<br>
+                Title_0(Scene) → Canvas(Hierarchy) → Start_Button の順になっているのでそこまで移動してから編集<br>
                 <br>
-                <img src="../SS/Move.png" alt="ルファサ" class="ImageScript">
+                <img src="../SS/ButtonColor.png" alt="ルファサ" class="ImageScript">
                 <dl class="ImageScriptdata">
-                    <dt>画像を追記</dt>
+                    <dt>Highlight と Color　Pressed Color の色を自由に変更</dt>
                 </dl>
             </a>
             <div id="SubExplanation">
-                <h2>弾の移動処理</h2>
+                <h2>Start_Textの編集</h2>
             </div>
             <a>
-                Assets(Project) → 1_Murata → M_Prefab の中に入っている Ball(Prefab) を開いて Bullet_Player を編集<br>
-                今これの画像のスクショ間違っててとってない<br>
-                <img src="../SS/Bullet.png" alt="ルファサ" class="ImageScript">
-                <dl class="ImageScriptdata">
-                    <dt>画像を追記</dt>
-                </dl>
-            </a>
-            <div id="SubExplanation">
-                <h2>弾のダメージを設定</h2>
-            </div>
-            <a>
-                色々説明<br>
+                先ほど移動して編集した次にある Start_Text に移動してから編集<br>
                 <br>
-                <img src="../SS/BulletDamage.png" alt="ルファサ" class="ImageScript">
+                <img src="../SS/ButtonText.png" alt="ルファサ" class="ImageScript">
                 <dl class="ImageScriptdata">
-                    <dt>とりあえず説明</dt>
+                    <dt>Textの文字を自由に入力</dt>
                 </dl>
             </a>
             <div id="SubExplanation">
-                <h2>HP配置</h2>
+                <h2>SceneManagerの編集</h2>
             </div>
             <a>
-                色々説明<br>
-                <img src="../SS/Life.png" alt="ルファサ" class="ImageScript">
+                Canvas(Hierachy) の中にアタッチされている Title_Blink(Script) を編集<br>
+                <br>
+                <img src="../SS/SceneManager.png" alt="ルファサ" class="ImageScript">
                 <dl class="ImageScriptdata">
-                    <dt>とりあえず説明</dt>
+                    <dt>Click_Goの中に書かれている事を入力</dt>
                 </dl>
             </a>
         </dl>
