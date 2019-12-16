@@ -8,10 +8,10 @@ using UnityEngine;
 public class EnemyRespawn : MonoBehaviour
 {
     //敵の数
-    public int EnemyCount;
+    public int EnemyCounts;
 
     //敵の生成するもの
-    public GameObject Enemy;
+    public GameObject[] Enemy;
 
     //生成する時間
     public float RespawnTim;
@@ -19,6 +19,14 @@ public class EnemyRespawn : MonoBehaviour
     //時間を空ける
     public float SpawnTim;
 
+    //中ボス出現
+    public int Mini_Cuunt=0;
+
+    private int Mini_ros = 3;
+
+    private int Enemy_ros = 40;
+
+    private int Boos_ros = 1;
     /// <summary>
     /// 初期
     /// </summary>
@@ -49,15 +57,54 @@ public class EnemyRespawn : MonoBehaviour
     /// </summary>
     void EnemyControl()
     {
-        //敵の数が40以下なら
-        if (EnemyCount<=40)
+        if (Enemy_ros>=0)
         {
-            //敵の生成位置をランダムにする
-            Instantiate(Enemy, new Vector3(9.5f,2.8f -7*Random.value,0), Quaternion.identity);
+            //敵の数が40以下なら
+            if (EnemyCounts <= 40)
+            {
+                //敵の生成位置をランダムにする
+                Instantiate(Enemy[0], new Vector3(9.5f, 2.8f - 7 * Random.value, 0), Quaternion.identity);
 
-            //敵のカウントを1増やす
-            EnemyCount += 1;
+                //敵のカウントを1増やす
+                EnemyCounts += 1;
+                //中ボスカウントを増やす
+                Mini_Cuunt += 1;
+                Enemy_ros -= 1;
+            }
         }
+
+
+        if (Mini_ros>=0)
+        {
+            //敵中ボスを生成
+            if (Mini_Cuunt == 10)
+            {
+                //敵の生成位置をランダムにする
+                Instantiate(Enemy[1], new Vector3(9.5f, 2.8f - 7 * Random.value, 0), Quaternion.identity);
+
+                //敵の生成位置をランダムにする
+                Instantiate(Enemy[1], new Vector3(9.5f, 2.8f - 7 * Random.value, 0), Quaternion.identity);
+
+                //敵の生成位置をランダムにする
+                Instantiate(Enemy[1], new Vector3(9.5f, 2.8f - 7 * Random.value, 0), Quaternion.identity);
+
+                //0にする
+                Mini_Cuunt = 0;
+                Mini_ros -= 1;
+            }
+        }
+
+        if (Boos_ros>=0)
+        {
+            //敵の大ボスを生成
+            if (EnemyCounts == 39)
+            {
+                //敵の生成位置をランダムにする
+                Instantiate(Enemy[2], new Vector3(9.5f, 2.8f - 7 * Random.value, 0), Quaternion.identity);
+                Boos_ros -=1;
+            }
+        }
+
     }
 
     /// <summary>
@@ -65,6 +112,8 @@ public class EnemyRespawn : MonoBehaviour
     /// </summary>
     public void Enemy_Dow()
     {
-        EnemyCount -= 1;
+        EnemyCounts -= 1;
+
+        Enemy_ros += 1;
     }
 }
