@@ -13,8 +13,6 @@ public class Shot3 : MonoBehaviour
     {
         //シーン内にあるScoreコンポーネントを確保
         scoreComp = GameObject.Find("ScoreText").GetComponent<Score>();
-
-        Destroy(gameObject, lifetime); //設定時間後弾丸は消滅する
     }
 
     // 毎フレーム呼び出される関数
@@ -22,6 +20,8 @@ public class Shot3 : MonoBehaviour
     {
         // 移動する
         transform.localPosition += m_velocity;
+
+        Destroy(this.gameObject, lifetime); //設定時間後弾丸は消滅する
     }
 
     // 弾を発射する時に初期化するための関数
