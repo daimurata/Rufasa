@@ -2,14 +2,13 @@
 <html>
     <head>
         <meta charset="utf-8">    
-        <title>2Dシューティング　Character</title>
+        <title>2Dシューティング　キャラクター</title>
         <link href="../CSS/Main.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <header>
             <div id="Title">
-            <h1>test</h1>
-            <p>header</p>
+                <img src="../SS/Title.png"><br>     
             </div>   
         </header>
         <dl class="Menu">
@@ -18,12 +17,12 @@
             </dl>
             <ul>
                 <li><a class="linkbutton" href="Top.html">0．トップページ</a></li>
-                <li><a class="linkbutton" href="Character.html">1．Character</a></li>
-                <li><a class="linkbutton" href="Enemy.html">2．Enemy</a></li>
-                <li><a class="linkbutton" href="Score.html">3．Score</a></li>
-                <li><a class="linkbutton" href="Scene.html">4．Scene</a></li>
-                <li><a class="linkbutton" href="Title.html">5. Title</a></li>
-                <li><a class="linkbutton" href="Complete.html">6．完成</a></li>
+                <li><a class="linkbutton" href="Character.html">1.キャラクター</a></li>
+                <li><a class="linkbutton" href="Enemy.html">2.エネミー</a></li>
+                <li><a class="linkbutton" href="Score.html">3.スコア</a></li>
+                <li><a class="linkbutton" href="Title.html">4.タイトル</a></li>
+                <li><a class="linkbutton" href="Complete.html">5．完成</a></li>
+                <li><a class="linkbutton" href="CompleteData.html">6．完成データ</a></li>
             </ul>
         </dl>
         <dl class="PD">
@@ -34,9 +33,13 @@
                 <h2>キャラクターの移動処理記入</h2>
             </div>
             <a>
-                Game_1(Scene) → Player の順に移動して Player_Control を編集<br>
+                Game_1(Scene)→Playerの順に移動してPlayer_Controlに書き加える<br>
                 <br>
-                <img src="../SS/Move.png" alt="ルファサ" class="ImageScript">
+                <img src="../SS/Player_Move.png" alt="ルファサ" class="ImageScript">
+                <dl class="ImageScriptdata">
+                    <dt>画像を追記</dt>
+                </dl>
+                <img src="../SS/Player_Move2.png" alt="ルファサ" class="ImageScript">
                 <dl class="ImageScriptdata">
                     <dt>画像を追記</dt>
                 </dl>
@@ -45,9 +48,9 @@
                 <h2>弾の移動処理</h2>
             </div>
             <a>
-                Assets(Project) → 1_Murata → M_Prefab の中に入っている Ball(Prefab) を開いて Bullet_Player を編集<br>
-                今これの画像のスクショ間違っててとってない<br>
-                <img src="../SS/Bullet.png" alt="ルファサ" class="ImageScript">
+                <br>
+                <br>
+                <img src="../SS/Bullet_big.png" alt="ルファサ" class="ImageScript">
                 <dl class="ImageScriptdata">
                     <dt>画像を追記</dt>
                 </dl>
@@ -56,21 +59,51 @@
                 <h2>弾のダメージを設定</h2>
             </div>
             <a>
-                色々説明<br>
+                先ほど書き加えたBullet_PlayerのInspectorを編集<br>
                 <br>
-                <img src="../SS/BulletDamage.png" alt="ルファサ" class="ImageScript">
+                <img src="../SS/Bullet_HP.png" alt="ルファサ" class="ImageScript">
                 <dl class="ImageScriptdata">
-                    <dt>とりあえず説明</dt>
+                    <dt>編集する</dt>
+                </dl>
+            </a>
+            <div id="SubExplanation">
+                <h2>弾をアタッチ</h2>
+            </div>
+            <a>
+                編集したBall(Prefab)をGame(Scene)→PlayerのInspectorでPlayer_Control(Scritp)にアタッチ<br>
+                <br>
+                <img src="../SS/Bullet_Atati.png" alt="ルファサ" class="ImageScript">
+                <dl class="ImageScriptdata">
+                    <dt>画像の場所にアタッチしていく</dt>
                 </dl>
             </a>
             <div id="SubExplanation">
                 <h2>HP配置</h2>
             </div>
             <a>
-                色々説明<br>
-                <img src="../SS/Life.png" alt="ルファサ" class="ImageScript">
+                最初に書き加えたPlayer_Controlに更に書き加える<br>
+                <img src="../SS/Player_HP1.png" alt="ルファサ" class="ImageScript">
                 <dl class="ImageScriptdata">
-                    <dt>とりあえず説明</dt>
+                    <dt>追記する</dt>
+                </dl>
+                <br>
+                <img src="../SS/Player_HP2.png" alt="ルファサ" class="ImageScript">
+                <dl class="ImageScriptdata">
+                    <dt>追記する</dt>
+                </dl>
+                <br>
+                <img src="../SS/Player_HP3.png" alt="ルファサ" class="ImageScript">
+                <dl class="ImageScriptdata">
+                    <dt>追記する</dt>
+                </dl>
+                <img src="../SS/HP_%E8%BF%BD%E5%8A%A0%E5%9B%B3%E5%BD%A2.png" alt="ルファサ" class="ImageScript">
+                <dl class="ImageScriptdata">
+                    <dt>
+                        HP_1を右クリックしてDuplicateを左クリックして2個増やして、名前をそれぞれHP_1,HP_2,HP_3に変更します<br>
+                        HP_1の座標をX-744 Y459  <br>
+                        HP_2の座標をX-619 Y459  <br>
+                        HP_3の座標をX-494 Y459 に変更<br>
+                    </dt>
                 </dl>
             </a>
         </dl>

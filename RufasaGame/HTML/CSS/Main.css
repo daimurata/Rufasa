@@ -23,12 +23,10 @@ body{
 
 /*header*/
 div#Title{
-    background: #ccc;
-    width: 700px;
-    height: 200px;
+    /*width: 700px;
+    height: 200px;*/
     padding: 10px;
     text-align: center;
-    border: 1px solid #cccccc;
     margin: 30px auto;
 }
 /* 目次兼、リンクを置くとかとか */
