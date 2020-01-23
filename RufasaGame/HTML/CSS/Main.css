@@ -1,0 +1,90 @@
+/*スクロールバーを表示*/
+html{
+    overflow-y: scroll;
+    
+}
+/*pを赤色にする*/
+p{
+    color: #ff006e;
+}
+/*h1を赤色にする*/
+h1{
+    color: #ff006e;
+}
+h2{
+    color: #ffff64;
+}
+/*bodyの背景の色変更*/
+body{
+    background-color: black;
+    color: white;
+    font-family:"Comic Sans MS","ＭＳ Ｐゴシック";
+}
+
+/*header*/
+div#Title{
+    /*width: 700px;
+    height: 200px;*/
+    padding: 10px;
+    text-align: center;
+    margin: 30px auto;
+}
+/* 目次兼、リンクを置くとかとか */
+.Menu{
+    float: left;  
+    /*background: #ccc;*/
+    
+    color: white;
+    text-align: left;
+    width: 350px;
+    border: 5px solid;
+    margin-left: 50px;
+    margin-right: 70px;
+}
+/*目次の所に置くタイトル*/
+.MenuTitle{
+    text-align: center;
+}
+/*説明文を表示させるとこ*/
+.PD{
+    float: left;
+    /*background-color: aqua;*/
+    width:1000px;    
+}
+/*説明時に使うh1のタイトル*/
+div#Explanation{
+    clear: both;
+    text-align: center;
+}
+/*サブタイトルで使用*/
+div#SubExplanation{
+    clear: both;
+}
+/*ルファサの画像で使用*/
+.Image{
+    float: left;
+    margin-right: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+/*ルファサの画像の右側に表示するテキスト*/
+.Imagedata{
+    float: left;
+}
+/*スクリプトの画像*/
+.ImageScript{
+    /*中身は未定 ルファサで使用するものとはアレンジを今後加える*/
+    float: left;  
+}
+/*スクリプトの画像の下に表示するテキスト*/
+.ImageScriptdata{
+    clear: left;
+}
+/*linkで使用する文字を白色に*/
+.linkbutton{
+    color: white;
+}
+/*ダウンロードの文字を水色に*/
+.link{
+    color: aqua;
+}
